@@ -1,0 +1,202 @@
+{
+  "nbformat": 4,
+  "nbformat_minor": 0,
+  "metadata": {
+    "colab": {
+      "provenance": [],
+      "authorship_tag": "ABX9TyN3Y3dgeWDoktqWPla9goj3",
+      "include_colab_link": true
+    },
+    "kernelspec": {
+      "name": "python3",
+      "display_name": "Python 3"
+    },
+    "language_info": {
+      "name": "python"
+    }
+  },
+  "cells": [
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "view-in-github",
+        "colab_type": "text"
+      },
+      "source": [
+        "<a href=\"https://colab.research.google.com/github/angiecamayaot-boop/bici_al_trabajo_2026/blob/main/ELECTIVA%20II%20-%20Taller%201\" target=\"_parent\"><img src=\"https://colab.research.google.com/assets/colab-badge.svg\" alt=\"Open In Colab\"/></a>"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "execution_count": null,
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "m7gOfpHzh0Yq",
+        "outputId": "932dfba3-6ee5-41b5-ee72-81ea0cb32c6e"
+      },
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "total anual: 5018612\n",
+            "promedio diario 13749.622\n"
+          ]
+        }
+      ],
+      "source": [
+        "import random\n",
+        "\n",
+        "#generar producción aleatoria para 365\n",
+        "produccion = [random.randint(12000, 15500) for i in range(365)]\n",
+        "\n",
+        "produccion_total = sum(produccion)\n",
+        "promedio = produccion_total / len(produccion)\n",
+        "\n",
+        "print(\"total anual:\", produccion_total)\n",
+        "print(\"promedio diario\", round(promedio, 3))"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [],
+      "metadata": {
+        "id": "yA42HYdBiVjg"
+      },
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "**Simulación para un millon de registros **"
+      ],
+      "metadata": {
+        "id": "3Ws1fvKzkib9"
+      }
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "#generar producción aleatoria para 1 milln\n",
+        "datos = [random.randint(12000, 15500) for i in range(1000000)]\n",
+        "print (\"promedio:\", sum(datos)/len(datos))"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "dLY5gI98lGLd",
+        "outputId": "5827781e-77ba-43b2-f4c5-0fe6c81aa12f"
+      },
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "promedio: 13749.196067\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "#Tipo de datos"
+      ],
+      "metadata": {
+        "id": "-5GJ9xgMnM80"
+      },
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "produccion_uno = 13749\n",
+        "costo = 1550000.70\n",
+        "turno = \"turno dia\"\n",
+        "cumplimiento = True\n",
+        "\n",
+        "print(type(produccion_uno))\n",
+        "print(type(costo))\n",
+        "print(type(turno))\n",
+        "print(type(cumplimiento))"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "ORk7NGTKnUEz",
+        "outputId": "0443608f-9eb6-49c1-a3a4-f520ca5f3e7b"
+      },
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "<class 'int'>\n",
+            "<class 'float'>\n",
+            "<class 'str'>\n",
+            "<class 'bool'>\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "#Aplicacion de indicadores"
+      ],
+      "metadata": {
+        "id": "_NolZ9bZp6gT"
+      }
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "produccion_dos = 18500\n",
+        "defectuosos = 420\n",
+        "horas_trabajo = 8\n",
+        "operarios = 14\n",
+        "costo_total = 7800000\n",
+        "meta = 160\n",
+        "\n",
+        "horas_hombres = horas_trabajo * operarios\n",
+        "productividad = produccion_dos / horas_hombres\n",
+        "tasa_defectos = defectuosos / produccion_dos\n",
+        "costo_unitario = costo_total / produccion_dos\n",
+        "\n",
+        "cumple_meta = productividad >= meta\n",
+        "print(\"productividad:\", round(productividad,2))\n",
+        "print(\"tasa_defectos:\", round(tasa_defectos*100,2),\"%\")\n",
+        "print(\"costo_unitario:\", round(costo_unitario,2))\n",
+        "print(\"¿cumple meta?:\", cumple_meta)"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "OpgeL7vrp-RK",
+        "outputId": "c1c2733f-c196-409f-98a6-1295598b9dcc"
+      },
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "productividad: 165.18\n",
+            "tasa_defectos: 2.27 %\n",
+            "costo_unitario: 421.62\n",
+            "¿cumple meta?: True\n"
+          ]
+        }
+      ]
+    }
+  ]
+}
